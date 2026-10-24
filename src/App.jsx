@@ -1,28 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [records, setRecords] = useState([
-    {
-      id: 1,
-      type: "VNR",
-      equipment: "VNR del kiosk 1",
-      problem: "Código CL",
-      repaired: false,
-    },
-    {
-      id: 2,
-      type: "Lock",
-      equipment: "Locker 305",
-      problem: "Cerradura atascada",
-      repaired: false,
-    },
-  ]);
+  const [records, setRecords] = useState(() =>
+    JSON.parse(localStorage.getItem("locker-manager-records") || "null") || [
+      {
+        id: 1,
+        type: "VNR",
+        equipment: "VNR del kiosk 1",
+        problem: "Código CL",
+        repaired: false,
+      },
+      {
+        id: 2,
+        type: "Lock",
+        equipment: "Locker 305",
+        problem: "Cerradura atascada",
+        repaired: false,
+      },
+    ] 
+  );
 
   const [type, setType] = useState("Lock");
   const [equipment, setEquipment] = useState("");
   const [problem, setProblem] = useState("");
   const [filter, setFilter] = useState("Todos");
+
+  useEffect(() => {
+  localStorage.setItem(
+    "locker-manager-records",
+    JSON.stringify(records)
+  );
+}, [records]);
 
   const pending = records.filter((r) => !r.repaired).length;
   const repaired = records.length - pending;
