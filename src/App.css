@@ -1,0 +1,180 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: block;
+  min-width: 320px;
+  background: #f1f5f9;
+}
+
+#root {
+  width: 100%;
+}
+
+.app {
+  max-width: 1050px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+header p {
+  color: #64748b;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.stat,
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px #00000008;
+}
+
+.stat h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.stat p {
+  color: #64748b;
+  margin-bottom: 0;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.green {
+  color: #16a34a;
+}
+
+.panel {
+  margin-bottom: 25px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.secondary {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.selected {
+  background: #2563eb;
+}
+
+.record {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 0;
+}
+
+.record:last-child {
+  border-bottom: none;
+}
+
+.record h3 {
+  margin: 10px 0 5px;
+}
+
+.record p {
+  color: #64748b;
+}
+
+.tag {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .record {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.app {
+  color: #0f172a;
+}
+
+.panel h2,
+.stat h2:not(.red):not(.green) {
+  color: #0f172a;
+}
